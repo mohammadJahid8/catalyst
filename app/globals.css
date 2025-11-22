@@ -1,26 +1,150 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* Custom Catalyst colors */
+  --color-midnight: var(--midnight-blue);
+  --color-slate: var(--slate-grey);
+  --color-teal: var(--catalyst-teal);
+  --color-off-white: var(--off-white);
+  --color-forest: var(--forest-green);
+  --color-ember: var(--ember-orange);
+
+  /* Border radius */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+
+  /* Font families */
+  --font-heading: var(--font-cinzel);
+  --font-body: var(--font-inter);
+  --font-accent: var(--font-playfair);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Catalyst Executive Group Design System */
+:root {
+  /* Base colors - Off-White Ice and Catalyst Midnight Blue */
+  --background: hsl(210 29% 97%); /* Off-White Ice */
+  --foreground: hsl(210 51% 11%); /* Catalyst Midnight Blue */
+
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(210 51% 11%);
+
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(210 51% 11%);
+
+  --primary: hsl(210 51% 11%); /* Catalyst Midnight Blue */
+  --primary-foreground: hsl(210 29% 97%);
+
+  --secondary: hsl(220 16% 22%); /* Executive Slate Grey */
+  --secondary-foreground: hsl(210 29% 97%);
+
+  --muted: hsl(220 16% 22%);
+  --muted-foreground: hsl(210 10% 60%);
+
+  --accent: hsl(180 78% 28%); /* Catalyst Teal */
+  --accent-foreground: hsl(210 29% 97%);
+
+  --destructive: hsl(14 72% 55%); /* Ember Orange */
+  --destructive-foreground: hsl(210 29% 97%);
+
+  --border: hsl(210 20% 88%);
+  --input: hsl(210 20% 90%);
+  --ring: hsl(180 78% 28%);
+
+  --radius: 0.25rem;
+
+  /* Custom Catalyst tokens */
+  --midnight-blue: hsl(210 51% 11%);
+  --slate-grey: hsl(220 16% 22%);
+  --catalyst-teal: hsl(180 78% 28%);
+  --off-white: hsl(210 29% 97%);
+  --forest-green: hsl(160 65% 15%);
+  --ember-orange: hsl(14 72% 55%);
+
+  /* Transitions */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark {
+  --background: hsl(210 51% 11%);
+  --foreground: hsl(210 29% 97%);
+
+  --card: hsl(220 16% 22%);
+  --card-foreground: hsl(210 29% 97%);
+
+  --popover: hsl(220 16% 22%);
+  --popover-foreground: hsl(210 29% 97%);
+
+  --primary: hsl(210 29% 97%);
+  --primary-foreground: hsl(210 51% 11%);
+
+  --secondary: hsl(220 16% 22%);
+  --secondary-foreground: hsl(210 29% 97%);
+
+  --muted: hsl(220 16% 18%);
+  --muted-foreground: hsl(210 10% 65%);
+
+  --accent: hsl(180 78% 28%);
+  --accent-foreground: hsl(210 29% 97%);
+
+  --destructive: hsl(14 72% 55%);
+  --destructive-foreground: hsl(210 29% 97%);
+
+  --border: hsl(220 16% 18%);
+  --input: hsl(220 16% 18%);
+  --ring: hsl(180 78% 28%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    scroll-behavior: smooth;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading font-bold;
+  }
+
+  .font-accent {
+    font-family: var(--font-accent);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .text-gradient-gold {
+    @apply bg-linear-to-r from-accent to-amber-400 bg-clip-text text-transparent;
+  }
 }
