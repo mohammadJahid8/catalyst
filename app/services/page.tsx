@@ -3,6 +3,27 @@ import FinalCTA from '@/components/global/final-cta';
 import HeroSection from '@/components/global/hero';
 import RecoveryServices from '@/components/global/recovery-services';
 import WhyChoose from '@/components/global/why';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Business Turnaround Services',
+  description:
+    'Comprehensive business turnaround and recovery services. Strategic partnership approach to save struggling businesses and restore profitability in Australia.',
+  keywords: [
+    'business turnaround services',
+    'business recovery',
+    'restructuring services',
+    'business rescue',
+    'turnaround management',
+    'business recovery plan',
+  ],
+  openGraph: {
+    title: 'Business Turnaround Services | Catalyst Executive Group',
+    description:
+      'Expert business turnaround and recovery services designed to save struggling businesses through strategic partnership.',
+    url: 'https://catalystexecutivegroup.com.au/services',
+  },
+};
 
 const Services = () => {
   return (

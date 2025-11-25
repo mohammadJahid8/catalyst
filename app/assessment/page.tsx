@@ -4,6 +4,26 @@ import FAQ from '@/components/global/faq';
 import FinalCTA from '@/components/global/final-cta';
 import HeroSection from '@/components/global/hero';
 import SaveOrClose from '@/components/global/save-close';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Free Business Assessment',
+  description:
+    'Get a confidential business assessment to understand if your business can be saved. Discover whether partnership with Catalyst Executive Group is right for you.',
+  keywords: [
+    'business assessment',
+    'business health check',
+    'free business evaluation',
+    'business viability assessment',
+    'turnaround assessment',
+  ],
+  openGraph: {
+    title: 'Free Business Assessment | Catalyst Executive Group',
+    description:
+      'Understand where your business stands and discover if strategic partnership can save your business.',
+    url: 'https://catalystexecutivegroup.com.au/assessment',
+  },
+};
 
 const Assessment = () => {
   return (

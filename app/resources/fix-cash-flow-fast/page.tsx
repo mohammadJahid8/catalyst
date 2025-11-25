@@ -63,7 +63,7 @@ export default function ShutDown() {
       name: 'Catalyst Executive Group',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://catalystexecutivegroup.com/logo.png',
+        url: 'https://catalystexecutivegroup.com/logo-dark.png',
       },
     },
     mainEntityOfPage: {
