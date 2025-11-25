@@ -64,7 +64,7 @@ export const metadata: Metadata = {
       'A results-based turnaround firm helping distressed businesses regain stability, profitability, and momentum through strategic partnership.',
     images: [
       {
-        url: '/logo-dark.png',
+        url: 'https://catalystexecutivegroup.com.au/logo-dark.png',
         width: 1200,
         height: 630,
         alt: 'Catalyst Executive Group Logo',
@@ -76,9 +76,9 @@ export const metadata: Metadata = {
     title: 'Catalyst Executive Group | Business Turnaround Services',
     description:
       'Results-based business turnaround and recovery services for distressed businesses in Australia.',
-    images: ['/logo-dark.png'],
+    images: ['https://catalystexecutivegroup.com.au/logo-dark.png'],
   },
-  robots: {
+  robots: { 
     index: true,
     follow: true,
     googleBot: {
@@ -101,7 +101,7 @@ export default function RootLayout({
     '@type': 'Organization',
     name: 'Catalyst Executive Group',
     url: siteUrl,
-    logo: `${siteUrl}/logo-dark.png`,
+    logo: 'https://catalystexecutivegroup.com.au/logo-dark.png',
     description:
       'Results-based business turnaround and recovery services for distressed businesses in Australia.',
     address: {
