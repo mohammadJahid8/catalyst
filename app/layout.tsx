@@ -3,6 +3,7 @@ import { Cinzel, Inter, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/global/header';
 import Footer from '@/components/global/footer';
+import Lenis from '@/components/global/lenis';
 
 const cinzel = Cinzel({
   variable: '--font-cinzel',
@@ -38,7 +39,7 @@ export default function RootLayout({
         className={`${cinzel.variable} ${inter.variable} ${playfair.variable} antialiased`}
       >
         <Header />
-        {children}
+        <Lenis>{children}</Lenis>
         <Footer />
       </body>
     </html>

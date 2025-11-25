@@ -1,37 +1,60 @@
-import { Button } from '@/components/ui/button';
+'use client';
 
-const FinalCTA = () => {
+import { motion } from 'framer-motion';
+import Title from './title';
+import Section from './section';
+import Container from './container';
+import CTAButton from './cta-button';
+
+interface FinalCTAProps {
+  title?: string;
+  highlightedText?: string;
+  description?: string;
+  buttonText?: string;
+}
+
+const FinalCTA = ({
+  title = 'Your Business Is',
+  highlightedText = 'Worth Saving',
+  description = 'If your business is declining but still has potential, Catalyst Executive Group can help bring it back to life through strategic, hands-on partnership.',
+  buttonText = 'Book a Confidential Consultation',
+}: FinalCTAProps) => {
   return (
-    <section className='py-24 bg-primary'>
-      <div className='container mx-auto px-6'>
-        <div className='text-center'>
-          <h2 className='text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary-foreground mb-6'>
-            Your Business Is Worth Saving
-          </h2>
-          <p className='text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto mb-12 leading-relaxed'>
-            If your business is declining but still has potential, Catalyst
-            Executive Group can help bring it back to life through strategic,
-            hands-on partnership.
+    <Section className='bg-accent relative' aria-labelledby='final-cta-heading'>
+      {/* Subtle grid pattern */}
+      <div className='absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-size-[64px_64px] mask-[radial-gradient(ellipse_at_center,black_20%,transparent_80%)]' />
+
+      {/* Accent glow */}
+      <div className='absolute top-0 left-1/2 -translate-x-1/2 md:w-[600px] h-[600px] bg-accent/10 rounded-full blur-3xl' />
+
+      <Container>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className='md:text-center'
+        >
+          <Title className='text-white'>
+            {title}{' '}
+            <span className='relative inline-block'>
+              <span className='relative z-10'>{highlightedText}</span>
+              <span className='absolute bottom-0 md:bottom-2 left-0 w-full h-3 bg-secondary -rotate-1' />
+            </span>
+          </Title>
+
+          <p className='text-base md:text-lg text-white max-w-3xl mx-auto leading-normal pt-4 mb-8'>
+            {description}
           </p>
 
-          <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-            <Button
-              size='lg'
-              className='bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg px-8 py-6 transition-all duration-300 hover:scale-105'
-            >
-              Start Your Revival
-            </Button>
-            <Button
-              size='lg'
-              variant='secondary'
-              className='font-semibold text-lg px-8 py-6 transition-all duration-300'
-            >
-              Book a Confidential Consultation
-            </Button>
-          </div>
-        </div>
-      </div>
-    </section>
+          <CTAButton
+            text={buttonText}
+            reverseColor
+            className='h-12 text-base'
+          />
+        </motion.div>
+      </Container>
+    </Section>
   );
 };
 

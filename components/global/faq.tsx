@@ -1,10 +1,17 @@
+'use client';
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import Title from './title';
+import Section from './section';
+import Container from './container';
+import CTAButton from './cta-button';
 
 const FAQ = () => {
   const faqs = [
@@ -46,43 +53,88 @@ const FAQ = () => {
   ];
 
   return (
-    <section className='py-24 bg-background'>
-      <div className='container mx-auto px-6'>
-        <div className='text-center mb-16'>
-          <h2 className='text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground mb-6'>
-            Frequently Asked Questions
-          </h2>
-        </div>
+    <Section className='relative bg-white overflow-hidden'>
+      <Container className='relative'>
+        {/* Header */}
+        <motion.header
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className='md:text-center mb-12'
+        >
+          <Title className='text-foreground'>
+            Frequently Asked{' '}
+            <motion.span className='relative inline-block'>
+              <motion.span className='relative z-10'>Questions</motion.span>
+              <motion.div className='absolute bottom-0 md:bottom-2 left-0 right-0 h-3 bg-accent/20 -rotate-1' />
+            </motion.span>
+          </Title>
+        </motion.header>
 
-        <div className='max-w-4xl mx-auto mb-12'>
-          <Accordion type='single' collapsible className='space-y-4'>
-            {faqs.map((faq, index) => (
-              <AccordionItem
-                key={index}
-                value={`item-${index}`}
-                className='border-2 border-border rounded-md px-6'
-              >
-                <AccordionTrigger className='text-lg font-heading font-semibold text-foreground hover:text-accent hover:no-underline'>
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className='text-muted-foreground leading-relaxed'>
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
+        {/* Two-column layout: Image + Accordions */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className='grid md:grid-cols-2 gap-4 mb-10'
+        >
+          {/* Left: Image */}
+          <div className='rounded-lg overflow-hidden aspect-square sticky top-24 self-start'>
+            <Image
+              unoptimized
+              src='/faq.webp'
+              alt='Frequently asked questions'
+              width={600}
+              height={600}
+              className='w-full max-h-[500px] h-full object-cover rounded-lg'
+            />
+          </div>
 
-        <div className='text-center'>
-          <Button
-            size='lg'
-            className='bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg px-8 py-6'
-          >
-            Apply for a Confidential Assessment
-          </Button>
-        </div>
-      </div>
-    </section>
+          {/* Right: Accordions */}
+          <div>
+            <Accordion type='single' collapsible className='space-y-3'>
+              {faqs.map((faq, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <AccordionItem
+                    value={`item-${index}`}
+                    className='border border-border rounded-lg px-6 bg-card hover:border-accent/50 transition-all duration-300 hover:shadow-md'
+                  >
+                    <AccordionTrigger className='text-base md:text-lg font-heading font-semibold text-foreground hover:text-accent hover:no-underline py-4'>
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className='text-sm md:text-base text-foreground leading-relaxed pb-4'>
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                </motion.div>
+              ))}
+            </Accordion>
+          </div>
+        </motion.div>
+
+        {/* CTA Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className='text-center'
+        >
+          <CTAButton
+            text='Apply for a Confidential Assessment'
+            className='h-12 text-base'
+          />
+        </motion.div>
+      </Container>
+    </Section>
   );
 };
 

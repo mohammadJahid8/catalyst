@@ -1,11 +1,6 @@
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+'use client';
+
+import { motion } from 'framer-motion';
 import {
   DollarSign,
   Settings,
@@ -16,6 +11,10 @@ import {
   RefreshCw,
   Target,
 } from 'lucide-react';
+import Title from './title';
+import Section from './section';
+import Container from './container';
+import Icon from './icon';
 
 const RecoveryServices = () => {
   const services = [
@@ -69,90 +68,134 @@ const RecoveryServices = () => {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.25, 0.4, 0.25, 1] as const,
+      },
+    },
+  };
+
   return (
-    <section className='py-20 bg-background'>
-      <div className='container mx-auto px-6'>
-        <div className='text-center mb-12'>
-          <h2 className='text-3xl md:text-4xl font-heading font-bold text-foreground mb-4'>
-            Business Recovery & Turnaround Services
-          </h2>
-          <p className='text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-6'>
+    <Section className='relative bg-background overflow-hidden'>
+      {/* Background grid pattern */}
+      <div className='absolute inset-0 bg-[linear-gradient(to_right,#e5e5e5_1px,transparent_1px),linear-gradient(to_bottom,#e5e5e5_1px,transparent_1px)] bg-size-[80px_80px] opacity-30' />
+
+      <Container className='relative'>
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className='mb-8 md:mb-12 md:text-center'
+        >
+          <Title className='text-foreground'>
+            Business Recovery &{' '}
+            <span className='relative inline-block'>
+              <span className='relative z-10'>Turnaround Services</span>
+              <span className='absolute bottom-0 md:bottom-2 left-0 w-full h-3 bg-accent/20 -rotate-1' />
+            </span>
+          </Title>
+          <p className='text-base md:text-lg text-foreground max-w-4xl mx-auto pt-4 leading-relaxed mb-4'>
             Catalyst Executive Group specialises in business recovery services
             and business turnaround services for small to medium Australian
             businesses. We help stabilise, recover, and revive struggling
             businesses through hands-on partnership and strategic execution.
           </p>
-          <p className='text-base text-muted-foreground max-w-4xl mx-auto leading-relaxed'>
+          <p className='text-base md:text-lg text-foreground max-w-4xl mx-auto leading-relaxed'>
             Our approach combines immediate crisis stabilisation with long-term
             business restructuring. Whether you need to save my business or
             improve business performance, we provide the expertise and
             leadership to get your business back on track.
           </p>
-        </div>
+        </motion.div>
 
-        <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12'>
-          {services.map((service, index) => {
-            const IconComponent = service.icon;
-            return (
-              <Card
-                key={index}
-                className='hover:shadow-lg transition-shadow border-border'
-              >
-                <CardHeader>
-                  <div className='w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4'>
-                    <IconComponent className='w-6 h-6 text-primary' />
-                  </div>
-                  <CardTitle className='text-lg font-heading'>
+        {/* Services Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial='hidden'
+          whileInView='visible'
+          viewport={{ once: true, margin: '-100px' }}
+          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12'
+        >
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              className='group relative h-full'
+            >
+              <div className='group relative h-full p-6 md:p-8 border border-border bg-card hover:border-accent/30 transition-all duration-500 hover:shadow-xl overflow-hidden rounded-lg'>
+                {/* Subtle corner accent */}
+                <div className='absolute top-0 right-0 w-20 h-20 md:w-24 md:h-24 bg-accent/5 rounded-bl-full transition-all duration-500 group-hover:w-28 opacity-50 group-hover:h-28' />
+
+                {/* Number badge */}
+                <div className='absolute top-3 right-3 text-4xl md:text-5xl font-bold text-accent/10 transition-all duration-500 group-hover:text-accent/20 group-hover:scale-110 font-heading'>
+                  0{index + 1}
+                </div>
+
+                <div className='relative'>
+                  {/* Icon */}
+                  <Icon icon={service.icon} />
+
+                  {/* Content */}
+                  <h3 className='text-xl font-bold text-foreground mb-2 leading-tight'>
                     {service.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className='text-sm leading-relaxed'>
+                  </h3>
+                  <p className='text-base text-foreground leading-relaxed'>
                     {service.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
 
-        <div className='max-w-4xl mx-auto mb-12'>
-          <Card className='border-primary/20'>
-            <CardContent className='p-8'>
-              <h3 className='text-xl font-heading font-semibold text-foreground mb-4 text-center'>
+        {/* Approach Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className='max-w-4xl mx-auto'
+        >
+          <div className='relative bg-card border border-border p-8 md:p-12 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden'>
+            {/* Subtle corner accent */}
+            <div className='absolute top-0 right-0 w-20 h-20 md:w-24 md:h-24 bg-accent/5 rounded-bl-full opacity-50' />
+
+            <div className='relative'>
+              <h3 className='text-xl md:text-2xl font-heading font-bold text-foreground mb-4 text-center'>
                 Our Tailored, Hands-On Approach
               </h3>
-              <p className='text-muted-foreground leading-relaxed text-center'>
-                Every small business turnaround Australia is unique. We don't
-                offer cookie-cutter solutions. Instead, our business
+              <p className='text-base text-foreground leading-relaxed text-center'>
+                Every small business turnaround Australia is unique. We
+                don&apos;t offer cookie-cutter solutions. Instead, our business
                 restructuring consultant team works alongside you as equity
-                partners — sharing risk and reward. This alignment ensures we're
-                fully committed to your success. We roll up our sleeves, embed
-                in your operations, and execute the plan with you, not just
-                advise from the sidelines.
+                partners — sharing risk and reward. This alignment ensures
+                we&apos;re fully committed to your success. We roll up our
+                sleeves, embed in your operations, and execute the plan with
+                you, not just advise from the sidelines.
               </p>
-            </CardContent>
-          </Card>
-        </div>
-
-        <Card className='bg-gradient-to-br from-primary/10 to-accent/10 border-primary/30'>
-          <CardContent className='p-12 text-center'>
-            <h3 className='text-3xl font-heading font-bold text-foreground mb-4'>
-              Get Your Business Back on Track
-            </h3>
-            <p className='text-muted-foreground mb-8 max-w-2xl mx-auto text-lg'>
-              If you're ready to fix my business and explore business recovery
-              services that actually work, let's talk. Book a confidential
-              consultation to discuss your situation and discover if our
-              partnership model is right for you.
-            </p>
-            <Button size='lg' className='font-semibold text-base px-8'>
-              Request a Turnaround Review
-            </Button>
-          </CardContent>
-        </Card>
-      </div>
-    </section>
+            </div>
+          </div>
+        </motion.div>
+      </Container>
+    </Section>
   );
 };
 
