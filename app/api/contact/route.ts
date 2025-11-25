@@ -18,8 +18,8 @@ export async function POST(req: Request) {
 
     const mailOptions = {
       from: `"Catalyst Inquiry" <${process.env.EMAIL_USER}>`,
-      // to: 'sadeq@abbass.group',
-      to: 'mohammadjahid0007@gmail.com',
+      to: 'sadeq@abbass.group',
+      // to: 'mohammadjahid0007@gmail.com',
       subject: `New Consultation Request from ${name}`,
       html: `
         <!DOCTYPE html>
