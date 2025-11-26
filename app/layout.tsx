@@ -64,7 +64,7 @@ export const metadata: Metadata = {
       'A results-based turnaround firm helping distressed businesses regain stability, profitability, and momentum through strategic partnership.',
     images: [
       {
-        url: '/catalyst-og.png',
+        url: `${siteUrl}/catalyst-og.png`,
         width: 1200,
         height: 630,
         alt: 'Catalyst Executive Group Logo',
@@ -76,9 +76,9 @@ export const metadata: Metadata = {
     title: 'Catalyst Executive Group | Business Turnaround Services',
     description:
       'Results-based business turnaround and recovery services for distressed businesses in Australia.',
-    images: ['/catalyst-og.png'],
+    images: [`${siteUrl}/catalyst-og.png`],
   },
-  robots: { 
+  robots: {
     index: true,
     follow: true,
     googleBot: {
@@ -96,44 +96,44 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // const organizationSchema = {
-  //   '@context': 'https://schema.org',
-  //   '@type': 'Organization',
-  //   name: 'Catalyst Executive Group',
-  //   url: siteUrl,
-  //   logo: 'https://catalystexecutivegroup.com.au/logo-dark.png',
-  //   description:
-  //     'Results-based business turnaround and recovery services for distressed businesses in Australia.',
-  //   address: {
-  //     '@type': 'PostalAddress',
-  //     addressCountry: 'AU',
-  //     addressRegion: 'Australia',
-  //   },
-  //   contactPoint: {
-  //     '@type': 'ContactPoint',
-  //     contactType: 'Customer Service',
-  //     availableLanguage: 'English',
-  //   },
-  //   areaServed: {
-  //     '@type': 'Country',
-  //     name: 'Australia',
-  //   },
-  //   sameAs: [
-  //     // Add social media profiles when available
-  //     // 'https://www.linkedin.com/company/catalyst-executive-group',
-  //     // 'https://www.facebook.com/catalystexecutivegroup',
-  //   ],
-  // };
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Catalyst Executive Group',
+    url: siteUrl,
+    logo: 'https://catalystexecutivegroup.com.au/logo-dark.png',
+    description:
+      'Results-based business turnaround and recovery services for distressed businesses in Australia.',
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: 'AU',
+      addressRegion: 'Australia',
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'Customer Service',
+      availableLanguage: 'English',
+    },
+    areaServed: {
+      '@type': 'Country',
+      name: 'Australia',
+    },
+    sameAs: [
+      // Add social media profiles when available
+      // 'https://www.linkedin.com/company/catalyst-executive-group',
+      // 'https://www.facebook.com/catalystexecutivegroup',
+    ],
+  };
 
   return (
     <html lang='en'>
       <head>
-        {/* <script
+        <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationSchema),
           }}
-        /> */}
+        />
       </head>
       <body
         className={`${cinzel.variable} ${inter.variable} ${playfair.variable} antialiased`}
