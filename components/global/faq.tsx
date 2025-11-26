@@ -18,7 +18,7 @@ const FAQ = () => {
     {
       question: 'How does the equity model work?',
       answer:
-        'We take an agreed equity stake in your business in exchange for our turnaround services. This aligns our interests completely—we only succeed when your business recovers. The exact equity percentage depends on the business size, complexity, and required involvement.',
+        'We take an agreed equity stake in your business in exchange for our turnaround services. This aligns our interests completely, we only succeed when your business recovers. The exact equity percentage depends on the business size, complexity, and required involvement.',
     },
     {
       question: 'Will my information remain confidential?',

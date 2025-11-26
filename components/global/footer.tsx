@@ -95,10 +95,6 @@ const Footer = () => {
           {/* Left Column - Brand & Newsletter */}
           <div className='lg:col-span-5'>
             <Logo className='lg:w-60 w-48' />
-            <p className='text-secondary-foreground text-base leading-relaxed mt-8 mb-4 max-w-md'>
-              Your strategic partner in buying businesses across Australia. We
-              provide expert guidance from initial search through to settlement.
-            </p>
 
             {/* Newsletter */}
             <div className='space-y-4'>

@@ -204,11 +204,6 @@ const Form = ({
       >
         {isLoading ? 'Sending...' : 'Submit Inquiry'}
       </Button>
-
-      <p className='text-xs text-muted-foreground text-center'>
-        By submitting this form, you agree to our privacy policy. We will never
-        share your information.
-      </p>
     </form>
   );
 };

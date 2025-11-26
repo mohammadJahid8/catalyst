@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 export default function ShutDown() {
   const post = {
     title: 'How to Decide Whether to Shut Down or Restructure',
-    by: 'By Catalyst Executive Group — Business Turnaround & Recovery Specialists',
+    by: 'By Catalyst Executive Group - Business Turnaround & Recovery Specialists',
     readTime: '10 min read',
     publishedAt: '2025-11-15',
   };
@@ -70,7 +70,7 @@ export default function ShutDown() {
   };
 
   return (
-    <div className='bg-background mt-16'>
+    <div className='bg-white mt-16'>
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

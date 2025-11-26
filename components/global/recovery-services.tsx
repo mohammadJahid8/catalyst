@@ -186,7 +186,7 @@ const RecoveryServices = () => {
                 Every small business turnaround Australia is unique. We
                 don&apos;t offer cookie-cutter solutions. Instead, our business
                 restructuring consultant team works alongside you as equity
-                partners — sharing risk and reward. This alignment ensures
+                partners sharing risk and reward. This alignment ensures
                 we&apos;re fully committed to your success. We roll up our
                 sleeves, embed in your operations, and execute the plan with
                 you, not just advise from the sidelines.

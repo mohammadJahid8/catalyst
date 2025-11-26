@@ -40,7 +40,7 @@ export default function ShutDown() {
   const post = {
     title:
       'Five Ways to Fix Cash Flow Fast (Without Damaging Long-Term Stability)',
-    by: 'By Catalyst Executive Group — Business Turnaround & Recovery Specialists',
+    by: 'By Catalyst Executive Group - Business Turnaround & Recovery Specialists',
     readTime: '7 min read',
     publishedAt: '2025-11-15',
   };
@@ -73,7 +73,7 @@ export default function ShutDown() {
   };
 
   return (
-    <div className='bg-background mt-16'>
+    <div className='bg-white mt-16'>
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

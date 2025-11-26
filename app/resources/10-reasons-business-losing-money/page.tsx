@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 export default function BlogDetailPage() {
   const post = {
     title: '10 Reasons Your Business Is Losing Money (and How to Fix Them)',
-    by: 'By Catalyst Executive Group — Business Turnaround & Recovery Specialists',
+    by: 'By Catalyst Executive Group - Business Turnaround & Recovery Specialists',
     readTime: '8 min read',
     publishedAt: '2025-11-15',
   };
@@ -70,7 +70,7 @@ export default function BlogDetailPage() {
   };
 
   return (
-    <div className='bg-background mt-16'>
+    <div className='bg-white mt-16'>
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

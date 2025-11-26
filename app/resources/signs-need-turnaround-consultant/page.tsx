@@ -70,7 +70,7 @@ export default function ShutDown() {
   };
 
   return (
-    <div className='bg-background mt-16'>
+    <div className='bg-white mt-16'>
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

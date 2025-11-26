@@ -6,6 +6,7 @@ import { motion, useInView } from 'framer-motion';
 import Section from './section';
 import Container from './container';
 import Form from './form';
+import Image from 'next/image';
 
 const Contact = () => {
   const sectionRef = useRef(null);
@@ -67,66 +68,19 @@ const Contact = () => {
           initial='hidden'
           animate={isInView ? 'visible' : 'hidden'}
           variants={containerVariants}
-          className='grid lg:grid-cols-3 gap-6 md:gap-8'
+          className='grid lg:grid-cols-3 gap-6'
         >
-          {/* Contact Form */}
-          <motion.div variants={itemVariants} className='lg:col-span-2'>
-            <div className='group relative p-6 md:p-8 border border-border bg-card hover:border-accent/30 transition-all duration-500 hover:shadow-xl overflow-hidden rounded-lg h-full'>
-              {/* Subtle corner accent */}
-              <div className='absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-bl-full transition-all duration-500 group-hover:w-32 group-hover:h-32 opacity-50' />
-
-              <div className='relative'>
-                <h2 className='text-2xl md:text-3xl font-heading font-bold text-foreground mb-2'>
-                  Request a Consultation
-                </h2>
-                <p className='text-sm md:text-base text-foreground mb-6 md:mb-8'>
-                  Fill out the form below and we&apos;ll get back to you within
-                  24 hours. All inquiries are strictly confidential.
-                </p>
-
-                <Form />
-
-                {/* Bottom accent line */}
-                <div className='absolute -bottom-10 left-0 w-16 h-0.5 bg-accent/40 transition-all duration-500 group-hover:w-full' />
-              </div>
-            </div>
-          </motion.div>
-
           {/* Contact Information */}
           <div className='space-y-6'>
             {/* Contact Info Card */}
             <motion.div variants={itemVariants}>
-              <div className='group relative p-6 border border-border bg-card hover:border-accent/30 transition-all duration-500 hover:shadow-xl overflow-hidden rounded-lg h-full'>
-                {/* Subtle corner accent */}
-                <div className='absolute top-0 right-0 w-20 h-20 bg-accent/5 rounded-bl-full transition-all duration-500 group-hover:w-24 group-hover:h-24 opacity-50' />
-
-                <div className='relative'>
-                  <h3 className='text-xl font-heading font-bold text-foreground mb-6'>
-                    Contact Information
-                  </h3>
-
-                  <div className='space-y-5'>
-                    {contactInfo.map((item, index) => (
-                      <div key={index} className='flex items-start gap-3'>
-                        <div className='w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0'>
-                          <item.icon className='w-5 h-5 text-accent' />
-                        </div>
-                        <div>
-                          <p className='font-medium text-sm text-foreground mb-1'>
-                            {item.label}
-                          </p>
-                          <p className='text-sm text-foreground'>
-                            {item.value}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Bottom accent line */}
-                  <div className='absolute -bottom-10 left-0 w-16 h-0.5 bg-accent/40 transition-all duration-500 group-hover:w-full' />
-                </div>
-              </div>
+              <Image
+                src='/contact-us.webp'
+                alt='Contact Information'
+                width={700}
+                height={700}
+                className='w-full h-[370px] rounded-lg object-cover object-left'
+              />
             </motion.div>
 
             {/* Confidentiality Card */}
@@ -151,6 +105,25 @@ const Contact = () => {
               </div>
             </motion.div>
           </div>
+          {/* Contact Form */}
+          <motion.div variants={itemVariants} className='lg:col-span-2'>
+            <div className='group relative p-6 md:p-8 border border-border bg-card hover:border-accent/30 transition-all duration-500 hover:shadow-xl overflow-hidden rounded-lg h-full'>
+              {/* Subtle corner accent */}
+              <div className='absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-bl-full transition-all duration-500 group-hover:w-32 group-hover:h-32 opacity-50' />
+
+              <div className='relative'>
+                <h2 className='text-2xl md:text-3xl font-heading font-bold text-foreground mb-2'>
+                  Request a Consultation
+                </h2>
+                <p className='text-sm md:text-base text-foreground mb-6 md:mb-8'>
+                  Fill out the form below and we&apos;ll get back to you within
+                  24 hours. All inquiries are strictly confidential.
+                </p>
+
+                <Form />
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
       </Container>
     </Section>

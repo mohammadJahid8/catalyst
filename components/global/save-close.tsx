@@ -110,9 +110,9 @@ const SaveOrClose = () => {
             variants={itemVariants}
             className='text-base md:text-lg text-foreground max-w-4xl mx-auto leading-relaxed'
           >
-            Many business owners get stuck in analysis paralysis — should I
-            close my business or keep fighting? This framework brings clarity to
-            one of the hardest decisions you&apos;ll face. Understanding your
+            Many business owners get stuck in analysis paralysis, should I close
+            my business or keep fighting? This framework brings clarity to one
+            of the hardest decisions you&apos;ll face. Understanding your
             alternatives to liquidation and business closure options helps you
             make the right choice with confidence.
           </motion.p>
@@ -165,7 +165,7 @@ const SaveOrClose = () => {
             <p className='text-base md:text-lg text-foreground leading-relaxed mb-6'>
               Whether you&apos;re considering business restructure, business
               survival strategies, or exploring alternatives with a business
-              turnaround consultant — we&apos;ll help you see your situation
+              turnaround consultant, we&apos;ll help you see your situation
               clearly and choose the right path forward.
             </p>
 
